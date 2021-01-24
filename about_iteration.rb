@@ -24,7 +24,7 @@ class AboutIteration < Neo::Koan
   # -------------------------------------------------------------------
 
   def test_each_is_a_method_on_arrays
-    assert_equal true, [].methods.include?(as_name(:each))
+    assert_equal true, [].methods.include?(:each)
   end
 
   def test_iterating_with_each
@@ -67,11 +67,11 @@ class AboutIteration < Neo::Koan
     array = [1, 2, 3, 4, 5, 6]
 
     even_numbers = array.select { |item| (item % 2) == 0 }
-    assert_equal [2,4,6], even_numbers
+    assert_equal [2, 4, 6], even_numbers
 
     # NOTE: 'find_all' is another name for the 'select' operation
     more_even_numbers = array.find_all { |item| (item % 2) == 0 }
-    assert_equal [2,4,6], more_even_numbers
+    assert_equal [2, 4, 6], more_even_numbers
   end
 
   def test_find_locates_the_first_element_matching_a_criteria
@@ -99,7 +99,7 @@ class AboutIteration < Neo::Koan
     # Files act like a collection of lines
     File.open("example_file.txt") do |file|
       upcase_lines = file.map { |line| line.strip.upcase }
-      assert_equal ['THIS', 'IS', 'A', 'TEST'], upcase_lines
+      assert_equal ["THIS", "IS", "A", "TEST"], upcase_lines
     end
 
     # NOTE: You can create your own collections that work with each,
